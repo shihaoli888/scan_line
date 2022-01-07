@@ -74,8 +74,8 @@
     <LibraryPath>thirdparty\glfw;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\lsh\Desktop\program\scan_line\thirdparty\glfw\include;C:\Users\lsh\Desktop\program\scan_line\thirdparty\glad\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\lsh\Desktop\program\scan_line\thirdparty\glfw;$(LibraryPath)</LibraryPath>
+    <IncludePath>thirdparty\glfw\include;thirdparty\glad\include;$(IncludePath)</IncludePath>
+    <LibraryPath>thirdparty\glfw;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

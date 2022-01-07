@@ -44,7 +44,7 @@ namespace {
 	std::vector<vec3> vertexes;
 	std::vector<vec3> normals;
 	std::vector<uint> faces;
-	std::unique_ptr<byte[]> frame(new byte[resx * resy * 3]);
+	std::unique_ptr<byte[]> frame = nullptr;
 	//øÿ÷∆œ‡πÿ
 	bool use_zbuffer = true;
 	float theta = 1.57;
@@ -60,7 +60,7 @@ bool load_obj(const std::string& path) {
 	std::string warn;
 	std::string err;
 	bool ret =
-		tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, path.c_str(),NULL,false);
+		tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, path.c_str(), NULL, false);
 	if (!err.empty()) {
 		std::cerr << err << std::endl;
 	}
@@ -248,6 +248,7 @@ int main(int argc, char** argv) {
 	std::string path = model_root + argv[1] + ".obj";
 	resx = std::stoi(argv[2]);
 	resy = std::stoi(argv[3]);
+	frame.reset(new byte[resx * resy * 3]);
 	renderer.reset(new Renderer(resx, resy));
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
